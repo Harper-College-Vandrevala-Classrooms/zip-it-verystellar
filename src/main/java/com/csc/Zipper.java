@@ -1,6 +1,8 @@
 package com.csc;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+
 
 public class Zipper {
 
@@ -26,5 +28,21 @@ public class Zipper {
             }
         }
         return result;
+    }
+
+    <T> HashMap<String, T> hashmapify(List<String> list_1, List<T> list_2) {
+        HashMap<String, T> hash = new HashMap<String, T>();
+        int max_size;
+        if(list_1.size()==list_2.size()) {
+            max_size = list_1.size();
+        }
+        else {
+            throw (new RuntimeException("Mismatched list size"));
+        }
+
+        for(int i = 0; i < max_size; i++){
+            hash.put(list_1.get(i), list_2.get(i));
+        }
+        return hash;
     }
 }
